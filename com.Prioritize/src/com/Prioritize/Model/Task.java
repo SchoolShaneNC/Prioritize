@@ -12,9 +12,9 @@ public class Task {
 
     private String description;
 
-    private int priority;
+    private double priority;
 
-    private int difficulty;
+    private double difficulty;
 
     private double estimatedHours;
 
@@ -31,7 +31,7 @@ public class Task {
         this.id = UUID.randomUUID();
     }
 
-    public Task(String title, String description, int priority, int difficulty, double estimatedHours, LocalDate dueDate, TaskType taskType) 
+    public Task(String title, String description, double priority, double difficulty, double estimatedHours, LocalDate dueDate, TaskType taskType) 
     {
         this.id = UUID.randomUUID();
         this.title = title;
@@ -52,9 +52,9 @@ public class Task {
 
     public String getDescription() { return description; }
 
-    public int getPriority() { return priority; }
+    public double getPriority() { return priority; }
 
-    public int getDifficulty() { return difficulty; }
+    public double getDifficulty() { return difficulty; }
 
     public double getEstimatedHours() { return estimatedHours; }
 
@@ -152,7 +152,7 @@ public class Task {
         if (daysUntilDue <= 0) 
             return priority * difficulty;
 
-        return (double) (priority * difficulty) / daysUntilDue;
+        return (priority * difficulty) / daysUntilDue;
     }
     
     @Override
